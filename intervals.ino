@@ -31,12 +31,12 @@ void setup()
 void function(unsigned long time, int led, int interval,unsigned long &previousMillis, int &state) 
 	{ 
 	if(time - previousMillis > interval) 
-	{ 
-		state = !state; 
+	{ 		
 		previousMillis = time; 
+		state = !state; 
 		digitalWrite(led, state); 
 	} 
-} 
+}
 
 void loop() 
 { 
