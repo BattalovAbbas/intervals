@@ -1,9 +1,9 @@
-#include <Servo.h> //используем библиотеку для работы с сервоприводом 
+#include <Servo.h> 
 Servo servo1; 
 Servo servo2; 
 Servo servo3; 
-int distance = 0; // Дистанция
-float degrees =0; // Угол наклона
+int distance = 0; 
+float degrees =0; 
 void setup() 
 { 
 	servo1.attach(13); 
@@ -17,21 +17,21 @@ void setup()
 
 void loop() 
 { 
-	if(Serial.available() > 0) // Ручной ввод расстояния, в дальшейшем через Ультразвуковой датчик измерения расстояния
+	if(Serial.available() > 0) 
 	{ 
-		String split = Serial.readString(); // Считываем дистанцию введеную дистанцию в мм
-		distance = split.toInt()-100; // Минус 100 мм 
+		String split = Serial.readString(); 
+		distance = split.toInt()-100; 
 		Serial.println(distance); 
-		if(distance<300) // Если расстояние меньше 300мм крутим первый серв
+		if(distance<300) 
 		{ 
 			servo2.write(0); 
 			servo3.write(0); 
-			degrees = (int)(distance/1.67); // Высчитываем угол
+			degrees = (int)(distance/1.67); 
 			servo1.write(degrees); 
 			Serial.println(degrees); 
 			delay(1000); 
 		} 
-		else if(distance<600) Если расстояние больше 300 но меньше 600мм крутим второй серв
+		else if(distance<600) 
 		{ 
 			servo1.write(180); 
 			servo3.write(0); 
@@ -40,7 +40,7 @@ void loop()
 			Serial.println(degrees); 
 			delay(1000); 
 		} 
-		else Если расстояние больше 600 крутим третий серв
+		else 
 		{ 
 			servo1.write(180); 
 			servo2.write(180); 
