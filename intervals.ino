@@ -39,7 +39,8 @@ void distans ()
 } 
 void loop() 
 { 
-	mediumDistance = (mediumDistance + distans())/2;
+	distans ();
+	mediumDistance = (mediumDistance + distance)/2;
 	if(mediumDistance<=300)
 	{ 
 		servo2.write(0); 
