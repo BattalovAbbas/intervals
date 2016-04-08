@@ -40,27 +40,27 @@ void distans ()
 void loop() 
 { 
 	mediumDistance = (mediumDistance + distans())/2;
-	if(distance<=300)
+	if(mediumDistance<=300)
 	{ 
 		servo2.write(0); 
 		servo3.write(10); 
-		degrees = (int)(distance/1.67); 
+		degrees = (int)(mediumDistance/1.67); 
 		servo1.write(degrees); 
 		Serial.println(degrees); 
 	} 
-	else if(distance<=600) 
+	else if(mediumDistance<=600) 
 	{ 
 		servo1.write(180); 
 		servo3.write(10); 
-		degrees = (int)((distance-300)/1.67); 
+		degrees = (int)((mediumDistance-300)/1.67); 
 		servo2.write(degrees); 
 		Serial.println(degrees); 
 	} 
-	else if(distance<=900) 
+	else if(mediumDistance<=900) 
 	{ 
 		servo1.write(180); 
 		servo2.write(180); 
-		degrees = (int)((distance-600)/1.67); 
+		degrees = (int)((mediumDistance-600)/1.67); 
 		servo3.write(degrees); 
 		Serial.println(degrees); 
 	} 
